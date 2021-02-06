@@ -1,4 +1,4 @@
-//Projeto Final Miguel BraganÁa Gama UC19202031
+//Projeto Final Miguel Bragan√ßa Gama UC19202031
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,16 +40,16 @@ typedef struct rank{
 //mostra o menu para o usuario e recebe a escolha
 void mostra_menu(int jogos_salvos);
 
-//lÍ um arquivo com dados para continuar um jogo previamente salvo
+//l√™ um arquivo com dados para continuar um jogo previamente salvo
 void continua_jogo();
 
-//um novo jogo È feito (um jogo antes salvo È perdido)
+//um novo jogo √© feito (um jogo antes salvo √© perdido)
 void novo_jogo();
 
 //recebe nome dos jogadores para o jogo
 void nome_jogador(usuario *jogador);
 
-//inicia o mapa para futura ediÁ„o
+//inicia o mapa para futura edi√ß√£o
 void gera_mapa(usuario *jogador, mapa *mar, mapa *tela);
 
 //inicia os navios
@@ -61,19 +61,19 @@ int adicionar_navios(usuario *jogador,mapa *tela);
 //mostra a tela para auxiliar no posicionamento de navios
 void mostra_tela(usuario *jogador,mapa *tela,int i);
 
-//inicia a tela auxiliar que serve como tela prÈ confirmaÁ„o, caso o jogador mude de ideia
+//inicia a tela auxiliar que serve como tela pr√© confirma√ß√£o, caso o jogador mude de ideia
 void inicia_tela_aux(char tela_aux[10][10], mapa *tela,int i);
 
 //mostra a tela auxiliar antes de alterar a tela principal
 void mostra_tela_aux(char tela_aux[10][10]);
 
-//essa funÁ„o È uma gerencia macro de como o posicionamento funciona
+//essa fun√ß√£o √© uma gerencia macro de como o posicionamento funciona
 void posiciona_navio(usuario *jogador,int i,mapa *tela);
 
 //escolhe um barco para posicionar e mostra o status dos barcos
 int escolhe_barco(usuario *jogador, int i);
 
-//escolhe cordenadas, confirma e valida a confirmaÁ„o, alem de passar a tela auxiliar para a tela que sera usada no jogo	
+//escolhe cordenadas, confirma e valida a confirma√ß√£o, alem de passar a tela auxiliar para a tela que sera usada no jogo	
 int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco);
 
 //o jogo em si
@@ -82,13 +82,13 @@ int jogo(usuario *jogador,mapa *tela,mapa *mar,int turno);
 //mostra a tela que o jogador deve atirar
 void mostra_mar(usuario *jogador,mapa *mar,int i);
 
-//a validaÁ„o do tiro e as concequencias
+//a valida√ß√£o do tiro e as concequencias
 void tiro(int linha,int coluna,usuario *jogador,mapa *tela,mapa *mar,int i);
 
-//essa funÁ„o verifica se o jogo terminou
+//essa fun√ß√£o verifica se o jogo terminou
 int valida_vencedor(usuario *jogador);
 
-//guarda um jogo n„o terminado em um arquivo
+//guarda um jogo n√£o terminado em um arquivo
 void salva_jogo(usuario *jogador,mapa *tela,mapa *mar,int turno);
 
 //guarda os dados de um jogo terminado em um arquivo
@@ -118,7 +118,7 @@ int main(){
 			 		continua_jogo();
 			 		break;
 			 	case 2:
-			 		printf("Se voce comeÁar outro jogo, o jogo anterior sera perdido \ndeseja proceder mesmo assim?(y/n)");
+			 		printf("Se voce come√ßar outro jogo, o jogo anterior sera perdido \ndeseja proceder mesmo assim?(y/n)");
 			 		fflush(stdin);
 			 		confirma = getchar();
 			 		if(confirma=='y' || confirma=='Y'){
@@ -131,7 +131,7 @@ int main(){
 				case 4:
 					break;
 				default:
-					printf("numero informado È invalido");
+					printf("numero informado √© invalido");
 					
 			}
 		}while(executa!=4);
@@ -149,7 +149,7 @@ int main(){
 				case 3:
 					break;
 				default:
-					printf("numero informado È invalido");
+					printf("numero informado √© invalido");
 					
 			 }
 		 }while(executa!=3);
@@ -308,14 +308,14 @@ void inicia_navios(usuario *jogador){
 					jogador[i].navios[j].tam=5;
 					jogador[i].navios[j].partes_restantes=5;
 					jogador[i].navios[j].afundado=0;
-					strcpy(jogador[i].navios[j].nome,"Porta-aviıes");
+					strcpy(jogador[i].navios[j].nome,"Porta-avi√µes");
 					break;
 				case 1:
 				case 2:
 					jogador[i].navios[j].tam=4;
 					jogador[i].navios[j].partes_restantes=4;
 					jogador[i].navios[j].afundado=0;
-					strcpy(jogador[i].navios[j].nome,"EncouraÁado");
+					strcpy(jogador[i].navios[j].nome,"Encoura√ßado");
 					break;
 				case 3:
 				case 4:
@@ -351,11 +351,11 @@ int adicionar_navios(usuario *jogador,mapa *tela){
 			posiciona_navio(jogador,i,tela);
 			system("cls");
 			mostra_tela(jogador,tela,i);
-			//erro que eu n„o vou ter tempo para concertar atÈ o envio (esse if n„o esta propriamente)
+			//erro que eu n√£o vou ter tempo para concertar at√© o envio (esse if n√£o esta propriamente)
 			if(jogador[i].total_navios<=9){
 				jogador[i].total_navios=jogador[i].total_navios+1;
 			}
-			printf("\n\t\tDeseja terminar a ediÁ„o?(y/n)");
+			printf("\n\t\tDeseja terminar a edi√ß√£o?(y/n)");
 				fflush(stdin);
 				confirma=getchar();
 			if(jogador[i].total_navios<9 && (confirma=='y' || confirma=='Y')){
@@ -420,7 +420,7 @@ void posiciona_navio(usuario *jogador,int i,mapa *tela){
 		confirma = escolhe_coordenadas(jogador,tela,i,barco);
 		if(confirma==2){
 			system("cls");
-			printf("Escolha um espaÁo");
+			printf("Escolha um espa√ßo");
 		}
 	}while(confirma!=1);
 }
@@ -432,28 +432,28 @@ int escolhe_barco(usuario *jogador,int i){
 		//mostra para o usuario os navios restantes
 		for(j=0;j<10;j++){
 			if(jogador[i].navios[j].afundado==0){
-				printf("N„o posicionado");
+				printf("N√£o posicionado");
 			}else{
 				printf("Posicionado");
 			}
 				printf("\tNavio:%15s  ",jogador[i].navios[j].nome);
-				printf("Tamanho:%i espaÁos  ",jogador[i].navios[j].tam);
+				printf("Tamanho:%i espa√ßos  ",jogador[i].navios[j].tam);
 				printf("Numero:%i\n",j);
 				printf("---------------------------------------------\n");
 		}
-		//escolhe um navio e devolve para a funÁ„o
+		//escolhe um navio e devolve para a fun√ß√£o
 		printf("\n\nEscolha um navio:");
 		scanf("%i",&barco);
 		if(barco<0 || barco>9){
 			system("cls");
-			printf("numero informado n„o È valido");
+			printf("numero informado n√£o √© valido");
 		}
 	}while(barco<0 || barco>9 );
 	return barco;
 }
 /*
-	ESSA FUN«√O ESTA GIGANTE POR QUE EU TIVE MUITOS PROBLEMAS PASSANDO STRUCTS DESSA FUN«√O ESPECIFICA PARA OUTRAS, E COMO 
-	EU N√O ACHEI RESPOSTAS RESOUVI POUPAR O COMPILADOR DESSA. MAS EU FIZ O POSSIVEL PARA "PSEUDO FUNCIONALIZAR A FUN«√O"
+	ESSA FUN√á√ÉO ESTA GIGANTE POR QUE EU TIVE MUITOS PROBLEMAS PASSANDO STRUCTS DESSA FUN√á√ÉO ESPECIFICA PARA OUTRAS, E COMO 
+	EU N√ÉO ACHEI RESPOSTAS RESOUVI POUPAR O COMPILADOR DESSA. MAS EU FIZ O POSSIVEL PARA "PSEUDO FUNCIONALIZAR A FUN√á√ÉO"
 */
 int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 	char linha_char;
@@ -468,7 +468,7 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 	}
 	inicia_tela_aux(tela_aux,tela,i);
 	j=0;
-	//recebe e valida as coordenadas da posiÁ„o do 1∞ espaÁo do barco
+	//recebe e valida as coordenadas da posi√ß√£o do 1¬∞ espa√ßo do barco
 	// valida_coordenadas();
 	do{
 		system("cls");
@@ -535,11 +535,11 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 		}
 	}while(confirma!=1);
 	
-	//reset da variavel que faz a validaÁ„o
+	//reset da variavel que faz a valida√ß√£o
 	confirma=0;
 	
-	//Mostra as direÁıes possiveis para o jogador(sem validaÁ„o)
-	//mostra_direÁıes();
+	//Mostra as dire√ß√µes possiveis para o jogador(sem valida√ß√£o)
+	//mostra_dire√ß√µes();
 	tela_aux[linha][coluna]= putchar('X');
 	if(tela_aux[linha-1][coluna]=='O'){
 		tela_aux[linha-1][coluna]= putchar('1');
@@ -558,12 +558,12 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 	}
 	system("cls");
 	
-	//recebe e valida a direÁ„o que o jogador quer colocar seu navio
-	//le_valida_direÁ„o();
+	//recebe e valida a dire√ß√£o que o jogador quer colocar seu navio
+	//le_valida_dire√ß√£o();
 	do{
 		confirma=0;
 		mostra_tela_aux(tela_aux);
-		printf("\n informe a direÁ„o que o %s vai ser posicionado",jogador[i].navios[barco].nome);
+		printf("\n informe a dire√ß√£o que o %s vai ser posicionado",jogador[i].navios[barco].nome);
 		scanf("%i",&direcao);
 		if(tela_aux[linha-1][coluna]=='1'&& direcao==1){
 			confirma=1;
@@ -578,7 +578,7 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 						confirma=1;
 					}else{
 						system("cls");
-						printf("direÁ„o submetida invalida! por favor tente novamente");
+						printf("dire√ß√£o submetida invalida! por favor tente novamente");
 						
 					}	
 				}	
@@ -586,19 +586,19 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 		}	
 	}while(confirma!=1);
 	
-	//reset da variavel que faz a validaÁ„o
+	//reset da variavel que faz a valida√ß√£o
 	confirma=0;
 	
-	//reset da posiÁ„o inicialmente escolhida (estava dando um warning ter X na posiÁ„o inicial) que faz a validaÁ„o
+	//reset da posi√ß√£o inicialmente escolhida (estava dando um warning ter X na posi√ß√£o inicial) que faz a valida√ß√£o
 	tela_aux[linha][coluna]= putchar('O');
 	
-	//coloca 'X' na posiÁ„o que o navio deve ter
+	//coloca 'X' na posi√ß√£o que o navio deve ter
 	//posiciona_navio_mar();
 	switch(direcao){
 		case 1:
 			for(j=linha;j>linha-jogador[i].navios[barco].tam;j--){
 				if(tela_aux[j][coluna]=='X' || j<0){
-					printf("PosiÁ„o n„o valida");
+					printf("Posi√ß√£o n√£o valida");
 					return 2;
 				}
 				tela_aux[j][coluna] = putchar('X');
@@ -609,7 +609,7 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 		case 2:
 			for(j=coluna;j<coluna+jogador[i].navios[barco].tam;j++){
 				if(tela_aux[linha][j]=='X' || j>9){
-					printf("PosiÁ„o n„o valida");
+					printf("Posi√ß√£o n√£o valida");
 					return 2;
 				}
 				tela_aux[linha][j] = putchar('X');
@@ -620,7 +620,7 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 		case 3:
 			for(j=linha;j<linha+jogador[i].navios[barco].tam;j++){
 				if(tela_aux[j][coluna]=='X' || j>9){
-					printf("PosiÁ„o n„o valida");
+					printf("Posi√ß√£o n√£o valida");
 					return 2;
 				}
 				tela_aux[j][coluna] = putchar('X');
@@ -631,7 +631,7 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 		case 4:
 			for(j=coluna;j>coluna-jogador[i].navios[barco].tam;j--){
 				if(tela_aux[linha][j]=='X' || j<0){
-					printf("PosiÁ„o n„o valida");
+					printf("Posi√ß√£o n√£o valida");
 					return 2;
 				}
 				tela_aux[linha][j] = putchar('X');
@@ -641,11 +641,11 @@ int escolhe_coordenadas(usuario *jogador,mapa *tela,int i,int barco){
 			break;
 	}
 	
-	//pedindo a confirmaÁ„o do jogador para caso ele mude de ideia sobre a posiÁ„o do navio
-	//confirma_posiÁ„o();
+	//pedindo a confirma√ß√£o do jogador para caso ele mude de ideia sobre a posi√ß√£o do navio
+	//confirma_posi√ß√£o();
 	system("cls");
 	mostra_tela_aux(tela_aux);
-	printf("deseja confirmar essa mudanÁa (1-sim, 0-n„o)");
+	printf("deseja confirmar essa mudan√ßa (1-sim, 0-n√£o)");
 	scanf("%i",&confirma);
 	if(confirma==1){
 		jogador[i].navios[barco].afundado=1;
@@ -677,7 +677,7 @@ int jogo(usuario *jogador,mapa *tela,mapa *mar,int turno){
 			fflush(stdin);
 			pausa=getchar();
 		}
-		//checa se o jogo est· em andamento ou alguem ganhou ou o jogo foi parado
+		//checa se o jogo est√° em andamento ou alguem ganhou ou o jogo foi parado
 		if(vencedor!=3){
 			return vencedor;
 		}
@@ -792,7 +792,7 @@ void tiro(int linha,int coluna,usuario *jogador,mapa *tela,mapa *mar,int i){
 		}
 	}while(confirma!=1);
 	
-	//a computaÁ„o do tiro na tela
+	//a computa√ß√£o do tiro na tela
 	if(i==0){
 		mar[i].grid[linha][coluna]=putchar(tela[1].grid[linha][coluna]);
 			if(tela[1].grid[linha][coluna]=='X'){
@@ -859,9 +859,9 @@ void salva_jogo(usuario *jogador,mapa *tela,mapa *mar,int turno){
 		//abre o arquivo em binario
 		arq = fopen("jogo_salvo.txt", "wb");
 		assert(arq != NULL);
-		//transforma a variavel que lÍ se tem jogos salvos de false para true
+		//transforma a variavel que l√™ se tem jogos salvos de false para true
 		fprintf(arq,"%i\n",1);
-		//salva o restante das variaveis pertinentes ‡ partida
+		//salva o restante das variaveis pertinentes √† partida
 		fprintf(arq,"%i\n",turno);
 		for(i=0;i<2;i++){
 			fprintf(arq,"%s|%i|%i|%i",jogador[i].nome,jogador[i].acertos,jogador[i].tiros,jogador[i].total_navios);
@@ -895,18 +895,18 @@ void registra_vencedor(usuario *jogador,int vencedor,int perdedor){
 	FILE *arq;
 	rank *jogador_rank, *aux;
 	
-	//como houve um vencedor do jogo salvo, essa parte transforma em falso a variavel que verifica se h· jogos n„o terminados
+	//como houve um vencedor do jogo salvo, essa parte transforma em falso a variavel que verifica se h√° jogos n√£o terminados
 	arq = fopen("jogo_salvo","wb");
 	assert(arq != NULL);
 	fprintf(arq,"0");
 	fclose(arq);
-	//pontos do vencedor s„o calculados
+	//pontos do vencedor s√£o calculados
 	calc_aux=jogador[vencedor].acertos/jogador[vencedor].tiros;
 	//abre o arquivo ranking
 	system("cls");
 	arq = fopen("ranking.txt","r");
 	assert(arq != NULL);
-	//recebe as variaveis do arquivo para poderem sobrescreve-las sem perder nenhuma informaÁ„o
+	//recebe as variaveis do arquivo para poderem sobrescreve-las sem perder nenhuma informa√ß√£o
 	fscanf(arq,"%i\n",&total_jogadores);
 	jogador_rank=(rank *)malloc(total_jogadores*sizeof(rank));
 	for(i=0;i<total_jogadores;i++){
@@ -1009,7 +1009,7 @@ void ranking(){
 	FILE *arq;
 	rank *jogador_rank;
 	
-	//aqui ele abre o arquivo, lÍ e joga na tela. N„o vejo muito segredo
+	//aqui ele abre o arquivo, l√™ e joga na tela. N√£o vejo muito segredo
 	arq = fopen("ranking.txt","r");
 	assert(arq != NULL);
 	fscanf(arq,"%i",&total_jogadores);
@@ -1027,7 +1027,7 @@ void ranking(){
 	system("cls");
 	printf("\tRANKING:\n");
 	for(i=0;i<total_jogadores;i++){
-		printf("\t%i∞-%s:\n",i+1,jogador_rank[i].nome);
+		printf("\t%i¬∞-%s:\n",i+1,jogador_rank[i].nome);
 		printf("\tPontos|%.0f\n",jogador_rank[i].pontos);
 		printf("\tpartidas|%i\n",jogador_rank[i].partidas);
 		printf("\tvencidas|%i\n",jogador_rank[i].vitorias);

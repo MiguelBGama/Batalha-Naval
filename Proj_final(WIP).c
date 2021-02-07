@@ -102,7 +102,7 @@ int main(){
 	char confirma;
 	FILE *arq;
 	
-	arq = fopen("jogo_salvo.txt","r");
+	arq = fopen("jogo_salvo","rb");
 	assert(arq != NULL);
 	fscanf(arq,"%i",&jogos_salvos);
 	fclose(arq);
@@ -149,8 +149,7 @@ int main(){
 				case 3:
 					break;
 				default:
-					printf("numero informado é invalido");
-					
+					printf("numero informado é invalido");	
 			 }
 		 }while(executa!=3);
 		}
@@ -857,7 +856,7 @@ void salva_jogo(usuario *jogador,mapa *tela,mapa *mar,int turno){
 		FILE *arq;
 		
 		//abre o arquivo em binario
-		arq = fopen("jogo_salvo.txt", "wb");
+		arq = fopen("jogo_salvo", "wb");
 		assert(arq != NULL);
 		//transforma a variavel que lê se tem jogos salvos de false para true
 		fprintf(arq,"%i\n",1);
@@ -886,7 +885,7 @@ void salva_jogo(usuario *jogador,mapa *tela,mapa *mar,int turno){
 }
 
 void registra_vencedor(usuario *jogador,int vencedor,int perdedor){
-	int total_jogadores;
+	int total_jogadores,jogo_morto=0;
 	int i,j;
 	int jog_1=0,jog_2=0;
 	int pontos_tmp,partidas_tmp,vitorias_tmp;
